@@ -20,8 +20,8 @@ KROKI_SERVER = os.environ.get('KROKI_SERVER', 'https://kroki.io/')
 KROKI_SERVER = KROKI_SERVER[:-1] if KROKI_SERVER[-1] == '/' else KROKI_SERVER
 
 def kroki(key, value, format_, _):
-    [[ident, classes, keyvals], content] = value
     if key == 'CodeBlock':
+        [[ident, classes, keyvals], content] = value
         diagram_classes = list(set(AVAILABLE_DIAGRAMS) & set(classes))
         if len(diagram_classes) == 1:
             caption, typef, keyvals = get_caption(keyvals)
