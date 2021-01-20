@@ -1585,7 +1585,7 @@ main_ts ==> (main.view)
 
 ### [Vega-Lite](https://github.com/vega/vega-lite)
 
-```vega-lite
+```vegalite
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "Horizontally concatenated charts that show different types of discretizing scales.",

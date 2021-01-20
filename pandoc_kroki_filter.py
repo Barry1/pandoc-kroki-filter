@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import sys
+
 import os
 import base64
 import zlib
@@ -11,7 +13,7 @@ from pandocfilters import get_filename4code, get_caption, get_extension
 DIAGRAM_TYPES = ['blockdiag', 'bpmn', 'bytefield', 'seqdiag', 'actdiag',
                  'nwdiag', 'packetdiag', 'rackdiag', 'c4plantuml', 'ditaa',
                  'erd', 'excalidraw', 'graphviz', 'mermaid', 'nomnoml',
-                 'plantuml', 'svgbob', 'umlet', 'vega', 'vega-lite', 'wavedrom']
+                 'plantuml', 'svgbob', 'umlet', 'vega', 'vegalite', 'wavedrom']
 DIAGRAM_SYNONYMNS = {'dot': 'graphviz', 'c4': 'c4plantuml'}
 AVAILABLE_DIAGRAMS = DIAGRAM_TYPES + list(DIAGRAM_SYNONYMNS.keys())
 
@@ -37,6 +39,7 @@ def kroki(key, value, format_, _):
                 zlib.compress(content.encode('utf-8'), 9)
             ).decode()
             url = f'{KROKI_SERVER}/{diagram_type}/svg/{encoded}'
+            
             return Para([Image([ident, [], keyvals], caption, [url, typef])])
             
 def main():
