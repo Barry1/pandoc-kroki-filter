@@ -52,3 +52,9 @@ kroki server. If you want to use http, or are self-hosting and want to use
 ```sh
 KROKI_SERVER='https://kroki.my.domain/' pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
 ```
+
+## Caveats
+
+Currently, the mermaid support is kinda flaky, as you'll be able to see from the
+Mermaid section in [the example pdf](example/sample.pdf). The bubble for the
+graph appears, but the text apparently doesn't, for whatever reason.
