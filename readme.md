@@ -58,7 +58,7 @@ graph TD
 Install it with pip:
 
 ```sh
-pip install git+https://github.com/MyriaCore/pandoc-mermaid-filter.git
+pip install git+https://gitlab.com/myriacore/pandoc-kroki-filter.git
 ```
 
 And use it like any other pandoc filter:
