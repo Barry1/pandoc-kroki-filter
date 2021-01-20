@@ -17,7 +17,7 @@ AVAILABLE_DIAGRAMS = DIAGRAM_TYPES + list(DIAGRAM_SYNONYMS.keys())
 
 # kroki server to point to
 KROKI_SERVER = os.environ.get('KROKI_SERVER', 'https://kroki.io/')
-KROKI_SERVER = KROKI_SERVER[:-1] if KROKI_SERVER[-1] = '/' else KROKI_SERVER
+KROKI_SERVER = KROKI_SERVER[:-1] if KROKI_SERVER[-1] == '/' else KROKI_SERVER
 
 def kroki(key, [[ident, classes, keyvals], content], format_, _):
     if key == 'CodeBlock':
