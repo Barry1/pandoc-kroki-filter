@@ -13,7 +13,7 @@ DIAGRAM_TYPES = ['blockdiag', 'bpmn', 'bytefield', 'seqdiag', 'actdiag',
                  'erd', 'excalidraw', 'graphviz', 'mermaid', 'nomnoml',
                  'plantuml', 'svgbob', 'umlet', 'vega', 'vega-lite', 'wavedrom']
 DIAGRAM_SYNONYMNS = {'dot': 'graphviz', 'c4': 'c4plantuml'}
-AVAILABLE_DIAGRAMS = DIAGRAM_TYPES + list(DIAGRAM_SYNONYMS.keys())
+AVAILABLE_DIAGRAMS = DIAGRAM_TYPES + list(DIAGRAM_SYNONYMNS.keys())
 
 # kroki server to point to
 KROKI_SERVER = os.environ.get('KROKI_SERVER', 'https://kroki.io/')
