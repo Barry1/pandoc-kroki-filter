@@ -33,7 +33,9 @@ def kroki(key, value, format_, _):
                 diagram_type = diagram_classes[0]
 
             # create the url to the kroki diagram and link as an image
-            encoded = base64.urlsafe_b64encode(zlib.compress(content, 9))
+            encoded = base64.urlsafe_b64encode(
+                zlib.compress(content.encode('utf-8'), 9)
+            )
             url = f'{KROKI_SERVER}/{diagram_type}/svg/{encoded}'
             return Para([Image([ident, [], keyvals], caption, [url, typef])])
             
