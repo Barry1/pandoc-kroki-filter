@@ -7,17 +7,11 @@ from shutil import rmtree
 
 from setuptools import setup, Command
 
-
 here = os.path.abspath(os.path.dirname(__file__))
 
 if sys.argv[-1] == "publish":
     os.system("python setup.py sdist bdist_wheel upload")
     sys.exit()
-
-
-required = [
-    'pandocfilters'
-]
 
 
 class UploadCommand(Command):
@@ -61,7 +55,7 @@ setup(
     author='MyriaCore',
     author_email='development@myriaco.re',
     url='https://gitlab.com/myriacore/pandoc-kroki-filter',
-    install_requires=required,
+    install_requires=['pandocfilters'],
     py_modules=['pandoc_kroki_filter'],
     entry_points={
         'console_scripts': [
