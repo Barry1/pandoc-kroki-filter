@@ -15,34 +15,6 @@ blockdiag {
 }
 ```
 
-```graphviz
-digraph D {
-  subgraph cluster_p {
-    label = "Kroki";
-    subgraph cluster_c1 {
-      label = "Server";
-      Filebeat;
-      subgraph cluster_gc_1 {
-        label = "Docker/Server";
-        Java;
-      }
-      subgraph cluster_gc_2 {
-        label = "Docker/Mermaid";
-        "Node.js";
-        "Puppeteer";
-        "Chrome";
-      }
-    }
-    subgraph cluster_c2 {
-      label = "CLI";
-      Golang;
-    }
-  }
-}
-```
-
-You can also use the `dot` synonymn when working with graphviz as well.
-
 ```mermaid
 graph TD
   A[ Anyone ] -->|Can help | B( Go to github.com/yuzutech/kroki )
@@ -64,8 +36,12 @@ pip install git+https://gitlab.com/myriacore/pandoc-kroki-filter.git
 And use it like any other pandoc filter:
 
 ```sh
-pandoc sample.md -o sample.pdf --filter pandoc-kroki
+pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
 ```
+
+See the provided [example markdown](example/sample.md) and the [example
+pdf](example/sample.pdf) for a better understanding of what types of diagrams
+are supported via kroki, and how to use them. 
 
 ## Configuration
 
@@ -74,5 +50,5 @@ kroki server. If you want to use http, or are self-hosting and want to use
 *your own* kroki server, you can use the `KROKI_SERVER` environment variable:
 
 ```sh
-KROKI_SERVER='https://kroki.my.domain/' pandoc sample.md -o sample.pdf --filter pandoc-kroki
+KROKI_SERVER='https://kroki.my.domain/' pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
 ```
