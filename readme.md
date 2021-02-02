@@ -66,8 +66,11 @@ For example, the following command will blacklist mermaid and plantuml
 diagrams - they will appear as plain code blocks.
 
 ```sh
-KROKI_DIAGRAM_BLACKLIST=mermaid,plantuml pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
+KROKI_DIAGRAM_BLACKLIST=mermaid,plantuml pandoc example/sample.md -o example/sample-bl.pdf --filter pandoc-kroki
 ```
+
+You can see the result of this command in
+[example/sample-bl.pdf](example/sample-bl.pdf). 
 
 ## Caveats
 
