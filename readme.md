@@ -78,7 +78,8 @@ Currently, the mermaid support is kinda flaky, as you'll be able to see from the
 Mermaid section in [the example pdf](example/sample.pdf). The bubble for the
 graph appears, but the text apparently doesn't, for whatever reason.
 
-To avoid the jank, I recommend you blacklist mermaid diagrams with the
-`KROKI_DIAGRAM_BLACKLIST` variable, and use my [mermaid filter
+This bug appears to affect pdfs only, which is a shame. To avoid the jank, I
+recommend you blacklist mermaid diagrams with the `KROKI_DIAGRAM_BLACKLIST`
+variable, and use my [mermaid filter
 fork](https://github.com/MyriaCore/pandoc-mermaid-filter) to process mermaid
-diagrams instead.
+diagrams instead, or just try to use a non-pdf format.
