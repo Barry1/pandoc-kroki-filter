@@ -17,6 +17,12 @@ DIAGRAM_TYPES = ['blockdiag', 'bpmn', 'bytefield', 'seqdiag', 'actdiag',
 DIAGRAM_SYNONYMNS = {'dot': 'graphviz', 'c4': 'c4plantuml'}
 AVAILABLE_DIAGRAMS = DIAGRAM_TYPES + list(DIAGRAM_SYNONYMNS.keys())
 
+# List of diagrams types the user chooses not to process
+DIAGRAM_BLACKLIST = list(filter(
+  lambda d: d in AVAILABLE_DIAGRAMS,
+  os.environ.get('KROKI_DIAGRAM_BLACKLIST', '').split(',')
+)
+
 # kroki server to point to
 KROKI_SERVER = os.environ.get('KROKI_SERVER', 'https://kroki.io/')
 KROKI_SERVER = KROKI_SERVER[:-1] if KROKI_SERVER[-1] == '/' else KROKI_SERVER
@@ -25,7 +31,7 @@ def kroki(key, value, format_, _):
     if key == 'CodeBlock':
         [[ident, classes, keyvals], content] = value
         diagram_classes = list(set(AVAILABLE_DIAGRAMS) & set(classes))
-        if len(diagram_classes) == 1:
+        if len(diagram_classes) == 1 and diagram_classes[0] not in DIAGRAM_BLACKLIST:
             caption, typef, keyvals = get_caption(keyvals)
 
             # Divine the correct diagram type to use with kroki

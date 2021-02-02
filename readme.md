@@ -45,6 +45,8 @@ are supported via kroki, and how to use them.
 
 ## Configuration
 
+### `KROKI_SERVER`
+
 By default, this filter will use `https://kroki.io/` as the endpoint for the
 kroki server. If you want to use http, or are self-hosting and want to use
 *your own* kroki server, you can use the `KROKI_SERVER` environment variable:
@@ -53,8 +55,27 @@ kroki server. If you want to use http, or are self-hosting and want to use
 KROKI_SERVER='https://kroki.my.domain/' pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
 ```
 
+### `KROKI_DIAGRAM_BLACKLIST`
+
+If you don't want the filter to process certain diagram types, you can add these
+to the `KROKI_DIAGRAM_BLACKLIST` environment variable. This is a comma-separated
+value which holds all of the diagram types that will be ignored by the kroki
+filter.
+
+For example, the following command will blacklist mermaid and plantuml
+diagrams - they will appear as plain code blocks.
+
+```sh
+KROKI_DIAGRAM_BLACKLIST=mermaid,plantuml pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
+```
+
 ## Caveats
 
 Currently, the mermaid support is kinda flaky, as you'll be able to see from the
 Mermaid section in [the example pdf](example/sample.pdf). The bubble for the
 graph appears, but the text apparently doesn't, for whatever reason.
+
+To avoid the jank, I recommend you blacklist mermaid diagrams with the
+`KROKI_DIAGRAM_BLACKLIST` variable, and use my [mermaid filter
+fork](https://github.com/MyriaCore/pandoc-mermaid-filter) to process mermaid
+diagrams instead.
