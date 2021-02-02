@@ -21,7 +21,7 @@ AVAILABLE_DIAGRAMS = DIAGRAM_TYPES + list(DIAGRAM_SYNONYMNS.keys())
 DIAGRAM_BLACKLIST = list(filter(
   lambda d: d in AVAILABLE_DIAGRAMS,
   os.environ.get('KROKI_DIAGRAM_BLACKLIST', '').split(',')
-)
+))
 
 # kroki server to point to
 KROKI_SERVER = os.environ.get('KROKI_SERVER', 'https://kroki.io/')
