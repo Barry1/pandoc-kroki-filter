@@ -41,7 +41,7 @@ pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
 
 See the provided [example markdown](example/sample.md) and the [example
 pdf](example/sample.pdf) for a better understanding of what types of diagrams
-are supported via kroki, and how to use them. 
+are supported via kroki, and how to use them.
 
 ## Configuration
 
@@ -49,7 +49,7 @@ are supported via kroki, and how to use them.
 
 By default, this filter will use `https://kroki.io/` as the endpoint for the
 kroki server. If you want to use http, or are self-hosting and want to use
-*your own* kroki server, you can use the `KROKI_SERVER` environment variable:
+_your own_ kroki server, you can use the `KROKI_SERVER` environment variable:
 
 ```sh
 KROKI_SERVER='https://kroki.my.domain/' pandoc example/sample.md -o example/sample.pdf --filter pandoc-kroki
@@ -70,7 +70,7 @@ KROKI_DIAGRAM_BLACKLIST=mermaid,plantuml pandoc example/sample.md -o example/sam
 ```
 
 You can see the result of this command in
-[example/sample-bl.pdf](example/sample-bl.pdf). 
+[example/sample-bl.pdf](example/sample-bl.pdf).
 
 ## Caveats
 

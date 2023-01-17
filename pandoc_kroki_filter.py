@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 
-import sys
-
-import os
 import base64
+import os
+import sys
 import zlib
 
-from pandocfilters import toJSONFilter, Para, Image
-from pandocfilters import get_filename4code, get_caption, get_extension
+from pandocfilters import (
+    Image,
+    Para,
+    get_caption,
+    get_extension,
+    get_filename4code,
+    toJSONFilter,
+)
 
 # Diagram types that will be supported.
 DIAGRAM_TYPES: list[str] = [

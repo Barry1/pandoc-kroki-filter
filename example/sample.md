@@ -564,7 +564,7 @@ rackdiag {
 
 ### [C4 with PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML)
 
-You can use the proper kroki type `c4plantuml`, *or* the alias `c4`:
+You can use the proper kroki type `c4plantuml`, _or_ the alias `c4`:
 
 ```c4plantuml
 @startuml
@@ -634,7 +634,6 @@ Rel(banking_system, mainframe, "Uses")
 ```
 
 ### [ERD](https://github.com/BurntSushi/erd)
-
 
 ```erd
 [Person]

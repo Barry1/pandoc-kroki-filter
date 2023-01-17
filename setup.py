@@ -6,7 +6,7 @@ import sys
 from shutil import rmtree
 from typing import NoReturn
 
-from setuptools import setup, Command
+from setuptools import Command, setup
 
 here: str = os.path.abspath(os.path.dirname(__file__))
 
