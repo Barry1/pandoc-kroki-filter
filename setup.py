@@ -4,11 +4,10 @@
 import os
 import sys
 from shutil import rmtree
-from typing import NoReturn
 
 from setuptools import Command, setup
 
-here: str = os.path.abspath(os.path.dirname(__file__))
+here = os.path.abspath(os.path.dirname(__file__))
 
 if sys.argv[-1] == "publish":
     os.system("python setup.py sdist bdist_wheel upload")
@@ -18,21 +17,21 @@ if sys.argv[-1] == "publish":
 class UploadCommand(Command):
     """Support setup.py upload."""
 
-    description: str = "Build and publish the package."
+    description = "Build and publish the package."
     user_options = []
 
     @staticmethod
-    def status(s) -> None:
+    def status(s):
         """Prints things in bold."""
         print("\033[1m{0}\033[0m".format(s))
 
-    def initialize_options(self) -> None:
+    def initialize_options(self):
         pass
 
-    def finalize_options(self) -> None:
+    def finalize_options(self):
         pass
 
-    def run(self) -> NoReturn:
+    def run(self):
         try:
             self.status("Removing previous builds…")
             rmtree(os.path.join(here, "dist"))
