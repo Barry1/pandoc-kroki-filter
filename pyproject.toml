@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pandoc-kroki-filter"
+version = "0.1.1"
+authors = [
+  { name = "Dr. Bastian Ebeling", email = "bastian.ebeling@web.de" },
+  { name = "MyriaCore", email = "development@myriaco.re" },
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 2",
+  "Programming Language :: Python :: 2.6",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.0",
+  "Programming Language :: Python :: Implementation",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["pandocfilters"]
+description = "Pandoc filter for kroki diagrams! Pandoc filter which gives support for kroki-rendered diagrams. See readme for details. This is a fork from MyriaCore."
+requires-python = ">=2.6,>=3.0"
+urls = { "fork" = "https://github.com/Barry1/pandoc-kroki-filter", "orig" = "https://gitlab.com/myriacore/pandoc-kroki-filter" }
+
+[project.scripts]
+pandoc-kroki = "pandoc_kroki_filter:main"
