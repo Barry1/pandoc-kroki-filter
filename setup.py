@@ -39,9 +39,7 @@ class UploadCommand(Command):
             pass
 
         self.status("Building Source and Wheel (universal) distribution…")
-        os.system(
-            "{0} setup.py sdist bdist_wheel --universal".format(sys.executable)
-        )
+        os.system("{0} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
         self.status("Uploading the package to PyPi via Twine…")
         os.system("twine upload dist/*")
@@ -49,6 +47,10 @@ class UploadCommand(Command):
         sys.exit()
 
 
+# Qualifiers from <https://pypi.org/classifiers/>
+# <https://packaging.python.org/en/latest/tutorials/packaging-projects/#configuring-metadata>
+# PEP 301 <https://peps.python.org/pep-0301/#distutils-trove-classification>
+# Conversion to pyproject.toml by <https://setuptools.pypa.io/en/latest/userguide/entry_point.html> ?
 setup(
     name="pandoc-kroki-filter",
     version="0.1.1",
@@ -59,9 +61,7 @@ setup(
     url="https://github.com/Barry1/pandoc-kroki-filter",
     install_requires=["pandocfilters"],
     py_modules=["pandoc_kroki_filter"],
-    entry_points={
-        "console_scripts": ["pandoc-kroki = pandoc_kroki_filter:main"]
-    },
+    entry_points={"console_scripts": ["pandoc-kroki = pandoc_kroki_filter:main"]},
     license="MIT",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
