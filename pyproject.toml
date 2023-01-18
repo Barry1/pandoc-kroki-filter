@@ -25,8 +25,12 @@ classifiers = [
 ]
 dependencies = ["pandocfilters"]
 description = "Pandoc filter for kroki diagrams! Pandoc filter which gives support for kroki-rendered diagrams. See readme for details. This is a fork from MyriaCore."
+readme = "readme.md"
 requires-python = ">=2.6,>=3.0"
-urls = { "fork" = "https://github.com/Barry1/pandoc-kroki-filter", "orig" = "https://gitlab.com/myriacore/pandoc-kroki-filter" }
+
+[project.urls]
+"forkedrepo" = "https://github.com/Barry1/pandoc-kroki-filter"
+"origrepo" = "https://gitlab.com/myriacore/pandoc-kroki-filter"
 
 [project.scripts]
 pandoc-kroki = "pandoc_kroki_filter:main"
