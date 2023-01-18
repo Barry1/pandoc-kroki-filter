@@ -54,10 +54,7 @@ def kroki(key, value, format_, _):
     if key == "CodeBlock":
         [[ident, classes, keyvals], content] = value
         diagram_classes = list(set(AVAILABLE_DIAGRAMS) & set(classes))
-        if (
-            len(diagram_classes) == 1
-            and diagram_classes[0] not in DIAGRAM_BLACKLIST
-        ):
+        if len(diagram_classes) == 1 and diagram_classes[0] not in DIAGRAM_BLACKLIST:
             caption, typef, keyvals = get_caption(keyvals)
 
             # Divine the correct diagram type to use with kroki
