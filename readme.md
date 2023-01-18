@@ -30,7 +30,7 @@ graph TD
 Install it with pip:
 
 ```sh
-pip install git+https://gitlab.com/myriacore/pandoc-kroki-filter.git
+pip install git+https://github.com/Barry1/pandoc-kroki-filter
 ```
 
 And use it like any other pandoc filter:
