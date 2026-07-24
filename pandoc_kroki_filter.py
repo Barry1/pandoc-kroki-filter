@@ -68,6 +68,8 @@ def kroki(key, value, format_, _):
                 zlib.compress(content.encode("utf-8"), 9)
             ).decode()
             url = KROKI_SERVER + "/" + diagram_type + "/svg/" + encoded
+            if diagram_type == "mermaid":
+                url += "?html-labels=false"
 
             return Para([Image([ident, [], keyvals], caption, [url, typef])])
 
