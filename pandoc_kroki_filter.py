@@ -51,25 +51,26 @@ KROKI_SERVER = KROKI_SERVER[:-1] if KROKI_SERVER[-1] == "/" else KROKI_SERVER
 
 
 def kroki(key, value, format_, _):
-    if key == "CodeBlock":
-        [[ident, classes, keyvals], content] = value
-        diagram_classes = list(set(AVAILABLE_DIAGRAMS) & set(classes))
-        if len(diagram_classes) == 1 and diagram_classes[0] not in DIAGRAM_BLACKLIST:
-            caption, typef, keyvals = get_caption(keyvals)
+    if key != "CodeBlock":
+        return
+    [[ident, classes, keyvals], content] = value
+    diagram_classes = list(set(AVAILABLE_DIAGRAMS) & set(classes))
+    if len(diagram_classes) == 1 and diagram_classes[0] not in DIAGRAM_BLACKLIST:
+        caption, typef, keyvals = get_caption(keyvals)
 
-            # Divine the correct diagram type to use with kroki
-            if diagram_classes[0] in DIAGRAM_SYNONYMNS:
-                diagram_type = DIAGRAM_SYNONYMNS[diagram_classes[0]]
-            else:
-                diagram_type = diagram_classes[0]
+        # Divine the correct diagram type to use with kroki
+        if diagram_classes[0] in DIAGRAM_SYNONYMNS:
+            diagram_type = DIAGRAM_SYNONYMNS[diagram_classes[0]]
+        else:
+            diagram_type = diagram_classes[0]
 
-            # create the url to the kroki diagram and link as an image
-            encoded = base64.urlsafe_b64encode(
-                zlib.compress(content.encode("utf-8"), 9)
-            ).decode()
-            url = KROKI_SERVER + "/" + diagram_type + "/svg/" + encoded
+        # create the url to the kroki diagram and link as an image
+        encoded = base64.urlsafe_b64encode(
+            zlib.compress(content.encode("utf-8"), 9)
+        ).decode()
+        url = f"{KROKI_SERVER}/" + diagram_type + "/svg/" + encoded
 
-            return Para([Image([ident, [], keyvals], caption, [url, typef])])
+        return Para([Image([ident, [], keyvals], caption, [url, typef])])
 
 
 def main():
