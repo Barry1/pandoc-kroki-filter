@@ -58,7 +58,7 @@ def kroki(key, value, format_, _):
             caption, typef, keyvals = get_caption(keyvals)
 
             # Divine the correct diagram type to use with kroki
-            if diagram_classes[0] in DIAGRAM_SYNONYMNS.keys():
+            if diagram_classes[0] in DIAGRAM_SYNONYMNS:
                 diagram_type = DIAGRAM_SYNONYMNS[diagram_classes[0]]
             else:
                 diagram_type = diagram_classes[0]
